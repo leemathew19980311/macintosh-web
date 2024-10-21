@@ -6,6 +6,7 @@ interface TopBarLeftItemBase {
     width: number;
   };
   text?: string;
+  bold?: boolean;
   children?: TopBarLeftItem[];
   divider?: boolean;
 }
@@ -26,10 +27,10 @@ type TopBarLeftItem =
 const defaultLeftItems: TopBarLeftItem[] = [
   {
     icon: {
-      src: "/icons/apple-icon-white.svg",
+      src: "/icons/apple-icon-black.svg",
       alt: "Macintosh",
-      height: 18,
-      width: 18,
+      height: 20,
+      width: 15,
     },
     eventMessage: "click-apple-icon",
     children: [
@@ -45,6 +46,31 @@ const finderConfig: TopBarLeftItem[] = [
   {
     text: "Finder",
     eventMessage: "click-finder",
+    bold: true,
+    children: [
+      {
+        text: "About Finder",
+        eventMessage: "click-about-finder",
+      },
+      {
+        divider: true,
+      },
+      {
+        text: "Settings...",
+        eventMessage: "click-settings",
+      },
+      {
+        divider: true,
+      },
+      {
+        text: "Empty Trash...",
+        eventMessage: "click-empty-trash",
+      },
+    ],
+  },
+  {
+    text: "File",
+    eventMessage: "click-file",
     children: [
       {
         text: "About Finder",
