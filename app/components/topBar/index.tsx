@@ -1,5 +1,6 @@
-import { defaultLeftItems, finderConfig } from "./config";
+import { defaultLeftItems, finderConfig, RightDefaultItems } from "./config";
 import RenderLeftItem from "./components/renderLeftItem";
+import Time from "./components/time";
 
 const TopBar = () => {
   return (
@@ -7,6 +8,12 @@ const TopBar = () => {
       {[...defaultLeftItems, ...finderConfig].map((i) => (
         <RenderLeftItem item={i} key={i.eventMessage} />
       ))}
+      <div className="ml-auto flex items-center">
+        {RightDefaultItems.map((i) => (
+          <RenderLeftItem item={i} key={i.eventMessage} />
+        ))}
+        <Time />
+      </div>
     </header>
   );
 };

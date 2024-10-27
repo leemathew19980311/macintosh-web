@@ -94,5 +94,44 @@ const finderConfig: TopBarLeftItem[] = [
   },
 ];
 
-export { defaultLeftItems, finderConfig };
+const RightDefaultItems: TopBarLeftItem[] = [
+  {
+    icon: {
+      src: "/icons/wifi.svg",
+      alt: "wifi",
+      height: 18,
+      width: 18,
+    },
+    eventMessage: "click-wifi",
+  },
+  {
+    icon: {
+      src: "/icons/search.svg",
+      alt: "wifi",
+      height: 16,
+      width: 16,
+    },
+    eventMessage: "click-search",
+  },
+  {
+    icon: {
+      src: "/icons/user.svg",
+      alt: "wifi",
+      height: 18,
+      width: 18,
+    },
+    eventMessage: "click-user",
+  },
+  {
+    icon: {
+      src: "/icons/config.svg",
+      alt: "wifi",
+      height: 16,
+      width: 16,
+    },
+    eventMessage: "click-config",
+  },
+];
+
+export { defaultLeftItems, finderConfig, RightDefaultItems };
 export type { TopBarLeftItem };
