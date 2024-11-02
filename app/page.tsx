@@ -1,4 +1,3 @@
-import Dock from "./components/mainContent/dock";
 import MainContent from "./components/mainContent";
 import TopBar from "./components/topBar";
 

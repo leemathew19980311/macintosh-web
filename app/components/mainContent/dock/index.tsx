@@ -2,10 +2,11 @@
 import { Button } from "@/components/ui/button";
 import { ActiveIcon, defaultConfig, DockItemType } from "./config";
 import clsx from "clsx";
+import Image from "next/image";
 import { useState } from "react";
 
 const Dock = () => {
-  const [list, setList] = useState(defaultConfig);
+  const [list] = useState(defaultConfig);
   const mouseMoveHandler = (e: React.MouseEvent<HTMLDivElement>) => {
     const buttons = document.querySelectorAll("button[data-index]");
     const mouseX = e.clientX;
@@ -37,6 +38,7 @@ const Dock = () => {
           if (item.type === DockItemType.APP) {
             return (
               <Button
+                key={index}
                 data-index={index}
                 variant="link"
                 className={clsx(
@@ -46,12 +48,22 @@ const Dock = () => {
                   }
                 )}
               >
-                <img src={item.iconPath} width={55} />
+                <Image
+                  alt={item.label}
+                  src={item.iconPath}
+                  width={55}
+                  height={55}
+                />
                 {item.isActive && <ActiveIcon fill="#808080" />}
               </Button>
             );
           } else if (item.type === DockItemType.SEPARATOR) {
-            return <div className="w-[1px] bg-[#E8E8E8] h-11 mb-1 mx-2"></div>;
+            return (
+              <div
+                key={index}
+                className="w-[1px] bg-[#E8E8E8] h-11 mb-1 mx-2"
+              ></div>
+            );
           }
         })}
       </div>
